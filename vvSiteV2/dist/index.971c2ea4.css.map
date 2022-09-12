@@ -1,0 +1,1 @@
+{"mappings":"ACAA","sources":["src/styles/main.scss","src/styles/pages/_mainPage.scss"],"sourcesContent":["@import './pages/mainPage';\n@import './pages/aboutPage';",null],"names":[],"version":3,"file":"index.971c2ea4.css.map","sourceRoot":"/__parcel_source_root/"}

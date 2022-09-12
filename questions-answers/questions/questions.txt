@@ -1,0 +1,4 @@
+Linking js files in the head using parcel and the type being a module ???
+
+when using cutom rules in barba where do you define the animation to play
+    - I understand how the customs animations are selected but where do you add animation logic then ?

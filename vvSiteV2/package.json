@@ -1,0 +1,17 @@
+{
+  "name": "vvSiteV2",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": " parcel build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "animejs": "^3.2.1",
+    "sass": "^1.54.9"
+  }
+}

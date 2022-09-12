@@ -1,0 +1,5 @@
+
+
+barba uses multiple pages to work 
+    -either with a glbal transition that plays each time a page changes or 
+    with custom rules that will specify a special type of animation based on conditions 
