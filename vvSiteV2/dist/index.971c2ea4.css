@@ -1,5 +1,130 @@
-h1 {
-  color: #ff4d00;
+@import "https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap";
+*, :after, :before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.vvSiteHome {
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-color: #603c69;
+  position: absolute;
+  overflow: hidden;
+}
+
+.vvSiteHome--fullBodyvv {
+  height: 100%;
+  filter: drop-shadow(0 2rem .2rem #000000a7);
+  position: fixed;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vvSiteHome--mainTitleLine {
+  width: 200000rem;
+  height: 1rem;
+  z-index: -2;
+  filter: drop-shadow(0 1.3rem .4rem #00000057);
+  background-color: #f6914b;
+  position: absolute;
+  top: 52%;
+}
+
+.vvSiteHome--mainTitle {
+  z-index: -1;
+  letter-spacing: 3vw;
+  color: #fefaa4;
+  -webkit-text-stroke-width: .5vw;
+  -webkit-text-stroke-color: black;
+  text-shadow: 1.6rem 2.2rem .4rem #000000c1;
+  font-family: Play, sans-serif;
+  font-size: 15vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48.5%, -50%);
+}
+
+.vvSiteHome--subTitle {
+  color: #fff87bbd;
+  font-family: Play, sans-serif;
+  font-size: 4vw;
+  position: absolute;
+  top: 85%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.nav {
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-right: 5%;
+  display: flex;
+  position: absolute;
+  top: 5vw;
+  right: 0;
+}
+
+.nav .nav--link:visited, .nav .nav--link:link {
+  letter-spacing: .3vw;
+  color: #fefaa4;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.nav .nav--link:visited:hover, .nav .nav--link:link:hover {
+  transform: scale(1.2);
+}
+
+.nav--bar {
+  height: .4rem;
+  width: 100%;
+  filter: drop-shadow(.5rem .2rem .2rem #00000057);
+  z-index: -1;
+  background-color: #360841;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.socialLinks {
+  z-index: 100;
+  gap: 3rem;
+  margin-bottom: 6vh;
+  margin-right: 12vw;
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+}
+
+.socialLinks a {
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.socialLinks a:hover {
+  transform: scale(1.1);
+}
+
+@font-face {
+  font-family: vvFont;
+  src: url("https://fonts.googleapis.com");
+}
+
+body {
+  z-index: -10;
 }
 
 /*# sourceMappingURL=index.971c2ea4.css.map */

@@ -1,0 +1,23 @@
+.socialLinks{
+    
+    z-index: 100;
+
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+
+    display: flex;
+    gap: 3rem;
+    margin-right: 12vw;
+    margin-bottom: 6vh;
+
+    a{
+        cursor: pointer;
+        transition: all 0.2s;
+        
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}

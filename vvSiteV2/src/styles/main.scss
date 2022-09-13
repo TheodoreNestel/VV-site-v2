@@ -1,3 +1,30 @@
+@import './resets';
 @import './pages/mainPage';
 @import './pages/aboutPage';
-@import './component/nav'
+@import './component/nav';
+@import './component/socials';
+
+
+
+//very lazy so font stuff here :(
+@font-face {
+    font-family: vvFont;
+    src: url(https://fonts.googleapis.com);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+//some basic body css 
+
+body{
+    z-index: -10;
+}
+
+
+
+//the way the logic is organized is somewhat simple 
+//each page has its own file 
+
+    //each file build around the body so a div is placed inside body 
+    //the only contents not in that container are 
+    //nav and links which are directly on body

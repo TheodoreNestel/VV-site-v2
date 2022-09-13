@@ -1,3 +1,81 @@
-h1{
-    color: rgb(255, 77, 0);
+.vvSiteHome{
+    background-color: rgb(96, 60, 105);
+
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute; //check with Jun if ok
+    
+    overflow: hidden;
+
+    z-index: 0;
+    
+
+    
+
+    &--fullBodyvv{
+        //width: 40%; taking it away worked **
+        height: 100%;
+
+        position: fixed;
+        left: 50%;
+        top: 53%;
+        transform: translate(-50% , -50%);
+
+        filter: drop-shadow(0 2rem 0.2rem rgba(0, 0, 0, 0.654));
+
+    }
+
+    &--mainTitleLine{
+        width: 200000rem;
+        height: 1rem;
+        background-color: rgba(246, 145, 75, 1);
+
+        position: absolute;
+        top: 52%;
+        z-index: -2;
+
+        filter: drop-shadow(0rem  1.3rem  0.4rem rgba(0, 0, 0, 0.34));
+    }
+
+    &--mainTitle{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        //letter spacing cause some weird stuff 
+        //Jun is is ok for centering ?
+        transform: translate(-48.5% , -50%);
+
+        z-index: -1;
+
+        font-size: 15vw;
+        letter-spacing: 3vw;
+        color: rgba(254, 250, 164, 1);
+        -webkit-text-stroke-width: 0.5vw;
+        -webkit-text-stroke-color: black;
+        font-family: 'Play', sans-serif;
+
+        //smart way to make this responsive jun
+        text-shadow: 1.6rem 2.2rem 0.4rem #000000c1;
+
+
+        
+    }
+
+    &--subTitle{
+        position: absolute;
+
+        left: 20%;
+        top: 85%;
+        transform: translate(-50% , -50%);
+
+        font-size: 4vw;
+
+        color: rgba(255, 248, 123, 0.743);
+
+        font-family: 'Play', sans-serif;
+
+
+    }
+
 }

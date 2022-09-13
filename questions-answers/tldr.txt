@@ -3,3 +3,12 @@
 barba uses multiple pages to work 
     -either with a glbal transition that plays each time a page changes or 
     with custom rules that will specify a special type of animation based on conditions 
+
+
+
+    barba js cool idea 
+    in the enter / exit add the html used for anims 
+    directly there then remove it so you dont have to add direct markeup to the htmls 
+
+    you can (and maybe should) do this asyncro 
+    so the code has to run before it can move on 
