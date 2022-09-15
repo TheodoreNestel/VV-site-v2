@@ -1,0 +1,9 @@
+-Media queries for fonts 
+
+-add link functionality to contact me 
+
+
+-Barba animations 
+    - One animtion coded (needs cleaning up)
+    - add two more animations 
+

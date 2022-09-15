@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/main.scss">
     <link rel="icon" type="image/x-icon" href="../public/assets/logoTempVv.png">
-    <title>Document</title>
+
+   
+    <title>About me</title>
 </head>
-<body>
+<body data-barba="wrapper">
 
      <!-- the main nav component -->
      <nav class="nav">
@@ -17,22 +19,41 @@
         <a class="nav--link" href="contact.html">Contact</a>
         <div class="nav--bar"></div>
     </nav>
+    
+    <div class="vvSiteAbout" data-barba="container">
+        <div class="vvSiteAbout__Header">
+            <h1 class="vvSiteAbout__Header--title">About me</h1>
+            <div class="vvSiteAbout__Header--line" ></div>
+        </div>
 
-     <!-- social media links more can be added -->
-     <div class="socialsAboutmeVariant">
-            <div class="socialLinks">
-                <a class="socialLinks--twitch" href="https://www.twitch.tv/vvouivre" target="_blank">
-                    <img class="twitch__logo"
-                    src="../public/assets/iconstwitch-64.png">
-                </a>
-                <a class="socialLinks--twitter" target="_blank" href="https://twitter.com/vvouivre">
-                    <img class="twitter__logo" src="../public/assets/iconstwitter-64.png">
-                </a>
-                <a class="socialLinks--youtube" target="_blank" href="https://www.youtube.com/channel/UCD_h2O5_6nFborehCmZaCXQ">
-                    <img class="youtube__logo" src="../public/assets/iconsyoutube-64.png">
-                </a>
-            </div>
+        <div class="vvSiteAbout__MainSection">
+            <img class="Mainsection__img1" src="../public/assets/vvSearchChibi.png" alt="">
+            <img class="Mainsection__img2" src="../public/assets/vvHeartChibi.png" alt="">
+            <p class="mainSection__About">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda officia illo obcaecati ratione voluptatem dolores in optio, velit recusandae nulla excepturi labore, consequuntur aspernatur cumque. Deleniti obcaecati nisi beatae odit!</p>
+            <h1 class="mainSection__title">Schedule</h1>
+            <img class="mainSection__Scedule" src="../public/assets/schedulemockupv2.png" >
+            
+            <!-- social media links more can be added -->    
+<div class="mainSection__Socials">
+    <a class="socialLinks--twitch" href="https://www.twitch.tv/vvouivre" target="_blank">
+        <img class="twitch__logo"
+        src="../public/assets/iconstwitch-64.png">
+    </a>
+    <a class="socialLinks--twitter" target="_blank" href="https://twitter.com/vvouivre">
+        <img class="twitter__logo" src="../public/assets/iconstwitter-64.png">
+    </a>
+    <a class="socialLinks--youtube" target="_blank" href="https://www.youtube.com/channel/UCD_h2O5_6nFborehCmZaCXQ">
+        <img class="youtube__logo" src="../public/assets/iconsyoutube-64.png">
+    </a>
+</div>
+
     </div>
-  
+        </div>
+
+
+
+     
+    
 </body>
+<script type="module" src="app.js"></script>
 </html>

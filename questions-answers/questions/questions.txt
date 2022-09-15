@@ -14,11 +14,18 @@ when using cutom rules in barba where do you define the animation to play
 
 
 
-STYLING QESTIONS
+QESTIONS
 
-    -Responsive typography help
 
     -Nav underbar how can I make it happen without breaking everything 
 
-    -cirecle shadow under the main character ?
-    
+    -circle shadow under the main character ?
+
+    -design help with the garbage contact pls ToT
+
+    -https://visualsbyimpulse.com/store/10-free-stinger-transitions/
+        -help refining this
+
+    -A way to have overflow hidden all except on about page 
+
+    -Fix weird issue with Barba not removing the pages after a transition 

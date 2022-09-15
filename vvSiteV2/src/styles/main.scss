@@ -1,9 +1,15 @@
+@import './mediaquery';
+@import './component/nav';
+@import './component/socials';
 @import './resets';
 @import './pages/mainPage';
 @import './pages/aboutPage';
-@import './component/nav';
-@import './component/socials';
+@import './pages/contactPage';
 
+
+//with components being loaded first 
+//in theory anychanges I make to them in a page 
+//will overrule their "default"
 
 
 //very lazy so font stuff here :(
@@ -18,6 +24,8 @@
 
 body{
     z-index: -10;
+    //position: relative;
+    //overflow: hidden;
 }
 
 
@@ -28,3 +36,6 @@ body{
     //each file build around the body so a div is placed inside body 
     //the only contents not in that container are 
     //nav and links which are directly on body
+
+
+    
