@@ -14,12 +14,16 @@ barba.init({
           async leave(data) {
             
             animations.addBubblesForAnims()
-            await animations.bubbleExitAnim(data)
+
+            //two working exit anims currently 
+            await animations.bubbleAnimv2(data)
+            // await animations.bubbleExitAnim(data)
 
         },
 
           async enter(data) {
             
+            //When this animation is done properly only one should be needed 
             await animations.myAnimeEntry(data)
             
        

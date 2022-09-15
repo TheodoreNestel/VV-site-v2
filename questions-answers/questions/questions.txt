@@ -29,3 +29,8 @@ QESTIONS
     -A way to have overflow hidden all except on about page 
 
     -Fix weird issue with Barba not removing the pages after a transition 
+
+
+
+
+    -this.async() ????
