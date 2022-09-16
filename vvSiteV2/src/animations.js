@@ -136,19 +136,33 @@ class Animations {
 
         return timeline.finished
     }
+
+    // Animv3 = (data)=>{
+    //     let timeline = anime.timeline({
+    //         duration : 260,
+    //         easing : "easeInOutBack",
+    //     }).add({
+            
+    //     })
+    // }
     
     addBubblesForAnims = ()=>{
         //we add some html that we will use to animate
-        document.body.innerHTML += `
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1001;height:1rem;width:1rem;" class="orb0"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1002;height:1rem;width:1rem;" class="orb1"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1003;height:1rem;width:1rem;" class="orb2"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1004;height:1rem;width:1rem;" class="orb3"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1005;height:1rem;width:1rem;" class="orb4"></div>
+        document.querySelector(".bubbleContainer").innerHTML += `
+
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1001;height:1rem;width:1rem;" class="orb0"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1002;height:1rem;width:1rem;" class="orb1"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1003;height:1rem;width:1rem;" class="orb2"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1004;height:1rem;width:1rem;" class="orb3"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1005;height:1rem;width:1rem;" class="orb4"></div>
         `
-        console.log("items supposed to be added")
     }
     
+
+    RandomAnimation = ()=>{
+        const Allanimations = [this.bubbleAnimv2 , this.bubbleExitAnim]
+        return Allanimations[Math.floor(Math.random()*Allanimations.length)];
+    }
 
 }
 

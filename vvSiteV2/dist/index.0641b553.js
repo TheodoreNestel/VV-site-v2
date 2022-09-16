@@ -535,10 +535,9 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _core = require("@barba/core");
 var _coreDefault = parcelHelpers.interopDefault(_core);
-var _animejs = require("animejs");
-var _animejsDefault = parcelHelpers.interopDefault(_animejs);
 var _animations = require("./animations");
 var _animationsDefault = parcelHelpers.interopDefault(_animations);
+//instanciate out anims 
 const animations = new (0, _animationsDefault.default);
 //Barba-js page transition logic 
 (0, _coreDefault.default).init({
@@ -547,26 +546,26 @@ const animations = new (0, _animationsDefault.default);
         {
             name: "Random Transition",
             async leave (data) {
+                //pick a random animation 
+                let animation = animations.RandomAnimation();
+                //adds html divs for the sake of animations
                 animations.addBubblesForAnims();
-                //two working exit anims currently 
-                await animations.bubbleAnimv2(data);
-            // await animations.bubbleExitAnim(data)
+                console.log("exiting");
+                //play selected random animation
+                await animation(data);
+                console.log("exit await done");
             },
-            async enter (data) {
+            async after (data) {
+                console.log("entry");
                 //When this animation is done properly only one should be needed 
                 await animations.myAnimeEntry(data);
+                console.log("entry await done");
             }
         }
     ]
-}); //approach 
- //   I want to create a stream obs looking animation for that I will use elements added via js as to not clutter
- //   my page markeup so parts I will need 
- //     -A way to add the necessary js to the page via js 
- //     -A way to style said content ? 
- //     -A Animate said content 
- //     -Remove all added Js 
+});
 
-},{"@barba/core":"gIWbX","animejs":"jokr5","./animations":"erZZm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gIWbX":[function(require,module,exports) {
+},{"@barba/core":"gIWbX","./animations":"erZZm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gIWbX":[function(require,module,exports) {
 !function(t, n) {
     module.exports = n();
 }(this, function() {
@@ -1713,7 +1712,158 @@ const animations = new (0, _animationsDefault.default);
     }());
 });
 
-},{}],"jokr5":[function(require,module,exports) {
+},{}],"erZZm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _animejs = require("animejs");
+var _animejsDefault = parcelHelpers.interopDefault(_animejs);
+//DomElement querySelections
+const nav = document.querySelector(".nav");
+//--
+//store all animations / supporting functions in one class to keep things organized
+class Animations {
+    hideNav = ()=>{
+        let timeline = (0, _animejsDefault.default).timeline({
+            duration: "2000",
+            ease: "linear"
+        }).add({
+            targets: nav,
+            translateX: "800px"
+        }).add({
+            targets: nav,
+            translateX: "0"
+        });
+        return timeline.finished;
+    };
+    myAnimeEntry = (data)=>{
+        let timeline = (0, _animejsDefault.default).timeline({
+            duration: 400,
+            easing: "easeOutQuint"
+        }).add({
+            targets: ".orb4",
+            scale: 0,
+            changeComplete: ()=>{
+                let bubble = document.getElementsByClassName(`orb4`);
+                bubble[0].remove();
+            }
+        });
+        return timeline.finished;
+    };
+    //this leaves nothing but a black background
+    bubbleExitAnim = (data)=>{
+        let timeline = (0, _animejsDefault.default).timeline({
+            duration: 700,
+            easing: "easeOutCirc"
+        }).add({
+            targets: ".orb0",
+            backgroundColor: "rgba(254, 250, 164, 1)",
+            scale: 180
+        }).add({
+            targets: ".orb1",
+            backgroundColor: "#000000",
+            scale: 180
+        }, "-=400").add({
+            targets: ".orb2",
+            backgroundColor: "rgba(246, 145, 75, 1)",
+            scale: 180
+        }, "-=400").add({
+            targets: ".orb3",
+            backgroundColor: "#000000",
+            scale: 180
+        }, "-=400").add({
+            targets: ".orb4",
+            backgroundColor: "rgb(96, 60, 105)",
+            scale: 180
+        }, "-=400").add({
+            targets: ".orb4",
+            changeComplete: ()=>{
+                let bubble0 = document.getElementsByClassName(`orb0`);
+                let bubble1 = document.getElementsByClassName(`orb1`);
+                let bubble2 = document.getElementsByClassName(`orb2`);
+                let bubble3 = document.getElementsByClassName(`orb3`);
+                bubble0[0].remove();
+                bubble1[0].remove();
+                bubble2[0].remove();
+                bubble3[0].remove();
+            }
+        });
+        return timeline.finished;
+    };
+    bubbleAnimv2 = (data)=>{
+        let timeline = (0, _animejsDefault.default).timeline({
+            duration: 260,
+            easing: "easeInOutBack"
+        }).add({
+            targets: ".orb0",
+            backgroundColor: "rgba(254, 250, 164, 1)",
+            translateX: "25vw",
+            translateY: "-25vh",
+            scale: 90
+        }).add({
+            targets: ".orb1",
+            backgroundColor: "rgba(246, 145, 75, 1)",
+            translateX: "-25vw",
+            translateY: "25vh",
+            scale: 90
+        }).add({
+            targets: ".orb2",
+            backgroundColor: "rgb(96, 60, 105)",
+            translateX: "-25vw",
+            translateY: "-25vh",
+            scale: 90
+        }).add({
+            targets: ".orb3",
+            backgroundColor: "rgba(254, 250, 164, 1)",
+            translateX: "25vw",
+            translateY: "25vh",
+            scale: 90
+        }).add({
+            targets: ".orb4",
+            backgroundColor: "rgba(246, 145, 75, 1)",
+            scale: 180
+        }).add({
+            changeComplete: ()=>{
+                let bubble0 = document.getElementsByClassName(`orb0`);
+                let bubble1 = document.getElementsByClassName(`orb1`);
+                let bubble2 = document.getElementsByClassName(`orb2`);
+                let bubble3 = document.getElementsByClassName(`orb3`);
+                bubble0[0].remove();
+                bubble1[0].remove();
+                bubble2[0].remove();
+                bubble3[0].remove();
+            }
+        });
+        return timeline.finished;
+    };
+    // Animv3 = (data)=>{
+    //     let timeline = anime.timeline({
+    //         duration : 260,
+    //         easing : "easeInOutBack",
+    //     }).add({
+    //     })
+    // }
+    addBubblesForAnims = ()=>{
+        //we add some html that we will use to animate
+        document.querySelector(".bubbleContainer").innerHTML += `
+
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1001;height:1rem;width:1rem;" class="orb0"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1002;height:1rem;width:1rem;" class="orb1"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1003;height:1rem;width:1rem;" class="orb2"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1004;height:1rem;width:1rem;" class="orb3"></div>
+                <div style="border-radius:50%;position:fixed;top:50%;left:50%;z-index:1005;height:1rem;width:1rem;" class="orb4"></div>
+        `;
+    };
+    RandomAnimation = ()=>{
+        const Allanimations = [
+            this.bubbleAnimv2,
+            this.bubbleExitAnim
+        ];
+        return Allanimations[Math.floor(Math.random() * Allanimations.length)];
+    };
+}
+exports.default = Animations;
+
+},{"animejs":"jokr5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jokr5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /*
@@ -3020,143 +3170,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"erZZm":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _animejs = require("animejs");
-var _animejsDefault = parcelHelpers.interopDefault(_animejs);
-//DomElement querySelections
-const nav = document.querySelector(".nav");
-//--
-//store all animations / supporting functions in one class to keep things organized
-class Animations {
-    hideNav = ()=>{
-        let timeline = (0, _animejsDefault.default).timeline({
-            duration: "2000",
-            ease: "linear"
-        }).add({
-            targets: nav,
-            translateX: "800px"
-        }).add({
-            targets: nav,
-            translateX: "0"
-        });
-        return timeline.finished;
-    };
-    myAnimeEntry = (data)=>{
-        let timeline = (0, _animejsDefault.default).timeline({
-            duration: 400,
-            easing: "easeOutQuint"
-        }).add({
-            targets: ".orb4",
-            scale: 0,
-            changeComplete: ()=>{
-                let bubble = document.getElementsByClassName(`orb4`);
-                bubble[0].remove();
-            }
-        });
-        return timeline.finished;
-    };
-    //this leaves nothing but a black background
-    bubbleExitAnim = (data)=>{
-        let timeline = (0, _animejsDefault.default).timeline({
-            duration: 700,
-            easing: "easeOutCirc"
-        }).add({
-            targets: ".orb0",
-            backgroundColor: "rgba(254, 250, 164, 1)",
-            scale: 180
-        }).add({
-            targets: ".orb1",
-            backgroundColor: "#000000",
-            scale: 180
-        }, "-=400").add({
-            targets: ".orb2",
-            backgroundColor: "rgba(246, 145, 75, 1)",
-            scale: 180
-        }, "-=400").add({
-            targets: ".orb3",
-            backgroundColor: "#000000",
-            scale: 180
-        }, "-=400").add({
-            targets: ".orb4",
-            backgroundColor: "rgb(96, 60, 105)",
-            scale: 180
-        }, "-=400").add({
-            targets: ".orb4",
-            changeComplete: ()=>{
-                let bubble0 = document.getElementsByClassName(`orb0`);
-                let bubble1 = document.getElementsByClassName(`orb1`);
-                let bubble2 = document.getElementsByClassName(`orb2`);
-                let bubble3 = document.getElementsByClassName(`orb3`);
-                bubble0[0].remove();
-                bubble1[0].remove();
-                bubble2[0].remove();
-                bubble3[0].remove();
-            }
-        });
-        return timeline.finished;
-    };
-    bubbleAnimv2 = (data)=>{
-        let timeline = (0, _animejsDefault.default).timeline({
-            duration: 260,
-            easing: "easeInOutBack"
-        }).add({
-            targets: ".orb0",
-            backgroundColor: "rgba(254, 250, 164, 1)",
-            translateX: "25vw",
-            translateY: "-25vh",
-            scale: 90
-        }).add({
-            targets: ".orb1",
-            backgroundColor: "rgba(246, 145, 75, 1)",
-            translateX: "-25vw",
-            translateY: "25vh",
-            scale: 90
-        }).add({
-            targets: ".orb2",
-            backgroundColor: "rgb(96, 60, 105)",
-            translateX: "-25vw",
-            translateY: "-25vh",
-            scale: 90
-        }).add({
-            targets: ".orb3",
-            backgroundColor: "rgba(254, 250, 164, 1)",
-            translateX: "25vw",
-            translateY: "25vh",
-            scale: 90
-        }).add({
-            targets: ".orb4",
-            backgroundColor: "rgba(246, 145, 75, 1)",
-            scale: 180
-        }).add({
-            changeComplete: ()=>{
-                let bubble0 = document.getElementsByClassName(`orb0`);
-                let bubble1 = document.getElementsByClassName(`orb1`);
-                let bubble2 = document.getElementsByClassName(`orb2`);
-                let bubble3 = document.getElementsByClassName(`orb3`);
-                bubble0[0].remove();
-                bubble1[0].remove();
-                bubble2[0].remove();
-                bubble3[0].remove();
-            }
-        });
-        return timeline.finished;
-    };
-    addBubblesForAnims = ()=>{
-        //we add some html that we will use to animate
-        document.body.innerHTML += `
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1001;height:1rem;width:1rem;" class="orb0"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1002;height:1rem;width:1rem;" class="orb1"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1003;height:1rem;width:1rem;" class="orb2"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1004;height:1rem;width:1rem;" class="orb3"></div>
-                <div style="border-radius:50%;position:absolute;top:50%;left:50%;z-index:1005;height:1rem;width:1rem;" class="orb4"></div>
-        `;
-        console.log("items supposed to be added");
-    };
-}
-exports.default = Animations;
-
-},{"animejs":"jokr5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["7Aums","bNKaB"], "bNKaB", "parcelRequire0edb")
+},{}]},["7Aums","bNKaB"], "bNKaB", "parcelRequire0edb")
 
 //# sourceMappingURL=index.0641b553.js.map

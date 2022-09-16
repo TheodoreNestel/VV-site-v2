@@ -19,18 +19,24 @@ QESTIONS
 
     -Nav underbar how can I make it happen without breaking everything 
 
-    -circle shadow under the main character ?
+    -circle shadow under the main character ? -- add it to the png 
 
-    -design help with the garbage contact pls ToT
+    -design help with the garbage contact pls ToT - add another cool asset like a letter or scroll 
 
     -https://visualsbyimpulse.com/store/10-free-stinger-transitions/
         -help refining this
 
-    -A way to have overflow hidden all except on about page 
+    -A way to have overflow hidden all except on about page -- see answer below 
 
-    -Fix weird issue with Barba not removing the pages after a transition 
 
 
 
 
     -this.async() ????
+
+
+
+
+    FIXES answered
+        -style animation divs in css and have mediaqueries for animations on smaller screens
+        -keep in mind things are positioned fixed 

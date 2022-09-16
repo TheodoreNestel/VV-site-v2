@@ -2,8 +2,10 @@
 
 -add link functionality to contact me 
 
-
 -Barba animations 
     - One animtion coded (needs cleaning up)
-    - add two more animations 
+    - two animation coded (looks good )
+    - add onw more transition animation 
+
+-Fix weird barba bug causing pages to be spliced into one causing weird viusals **ARJUN
 
